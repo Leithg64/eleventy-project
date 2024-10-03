@@ -1,14 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eleventy Project</title>
-</head>
-<body>
-    <h1>Hello World</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed pellentesque nulla. In vulputate risus sit amet orci eleifend pretium. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur venenatis efficitur euismod. Nulla odio ipsum, finibus sed dapibus quis, semper sollicitudin dui. Cras tellus dolor, mattis eu libero vel, consectetur convallis lectus. Nullam in justo malesuada, eleifend est vitae, efficitur enim. Duis vestibulum posuere euismod.
+<h1>Liquid experiments</h1>
+<h3>the string literal &quot;now&quot; is passed to the <a href="https://shopify.github.io/liquid/filters/date/">date</a> filter and will be evalualated as current date and time, and formated with the formating template string</h3>
+<p>2024-10-03</p>
+<h3>we pass a string literal to the <a href="https://shopify.github.io/liquid/filters/split/">split</a> filter with ', ' as the delimiter an the result is assigned to the variable</h3>
+<p>beatles with <a href="https://shopify.github.io/liquid/tags/variable/#assign">assign</a></p>
+<p>John Paul George Ringo</p>
+<h2>a example from the eleventy documentation including remote data</h2>
+<p>11ty/eleventy</p>
+<pre>
 
-        In hendrerit dolor eros, et scelerisque magna sollicitudin eu. Maecenas rutrum tortor non odio commodo venenatis. Integer tincidunt magna ut magna commodo tincidunt. Donec finibus mauris at magna tristique pharetra. Pellentesque at lorem congue ex tempus sollicitudin sit amet nec risus. Sed at felis sit amet est fringilla interdum. Integer vel sem luctus, maximus risus nec, ornare nunc. Pellentesque convallis semper enim, eu condimentum sapien pulvinar in. Phasellus volutpat venenatis felis, at pulvinar tortor porta quis. Etiam vitae velit volutpat, blandit velit in, tempor leo. Etiam at metus vel diam efficitur tempus. Maecenas ac fringilla orci, quis sagittis tellus. Curabitur felis mi, finibus nec mi id, commodo iaculis augue.</p>
-</body>
-</html>
+{"id":112150776,"node_id":"MDEwOlJlcG9zaXRvcnkxMTIxNTA3NzY=","name":"eleventy","full_name":"11ty/eleventy","private":false,"owner":{"login":"11ty","id":35147177,"node_id":"MDEyOk9yZ2FuaXphdGlvbjM1MTQ3MTc3","avatar_url":"https://avatars.githubusercontent.com/u/35147177?v=4","gravatar_id":"","url":"https://api.github.com/users/11ty","html_url":"https://github.com/11ty","followers_url":"https://api.github.com/users/11ty/followers","following_url":"https://api.github.com/users/11ty/following{/other_user}","gists_url":"https://api.github.com/users/11ty/gists{/gist_id}","starred_url":"https://api.github.com/users/11ty/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/11ty/subscriptions","organizations_url":"https://api.github.com/users/11ty/orgs","repos_url":"https://api.github.com/users/11ty/repos","events_url":"https://api.github.com/users/11ty/events{/privacy}","received_events_url":"https://api.github.com/users/11ty/received_events","type":"Organization","site_admin":false},"html_url":"https://github.com/11ty/eleventy","description":"A simpler site generator. Transforms a directory of templates (of varying types) into HTML.","fork":false,"url":"https://api.github.com/repos/11ty/eleventy","forks_url":"https://api.github.com/repos/11ty/eleventy/forks","keys_url":"https://api.github.com/repos/11ty/eleventy/keys{/key_id}","collaborators_url":"https://api.github.com/repos/11ty/eleventy/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/11ty/eleventy/teams","hooks_url":"https://api.github.com/repos/11ty/eleventy/hooks","issue_events_url":"https://api.github.com/repos/11ty/eleventy/issues/events{/number}","events_url":"https://api.github.com/repos/11ty/eleventy/events","assignees_url":"https://api.github.com/repos/11ty/eleventy/assignees{/user}","branches_url":"https://api.github.com/repos/11ty/eleventy/branches{/branch}","tags_url":"https://api.github.com/repos/11ty/eleventy/tags","blobs_url":"https://api.github.com/repos/11ty/eleventy/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/11ty/eleventy/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/11ty/eleventy/git/refs{/sha}","trees_url":"https://api.github.com/repos/11ty/eleventy/git/trees{/sha}","statuses_url":"https://api.github.com/repos/11ty/eleventy/statuses/{sha}","languages_url":"https://api.github.com/repos/11ty/eleventy/languages","stargazers_url":"https://api.github.com/repos/11ty/eleventy/stargazers","contributors_url":"https://api.github.com/repos/11ty/eleventy/contributors","subscribers_url":"https://api.github.com/repos/11ty/eleventy/subscribers","subscription_url":"https://api.github.com/repos/11ty/eleventy/subscription","commits_url":"https://api.github.com/repos/11ty/eleventy/commits{/sha}","git_commits_url":"https://api.github.com/repos/11ty/eleventy/git/commits{/sha}","comments_url":"https://api.github.com/repos/11ty/eleventy/comments{/number}","issue_comment_url":"https://api.github.com/repos/11ty/eleventy/issues/comments{/number}","contents_url":"https://api.github.com/repos/11ty/eleventy/contents/{+path}","compare_url":"https://api.github.com/repos/11ty/eleventy/compare/{base}...{head}","merges_url":"https://api.github.com/repos/11ty/eleventy/merges","archive_url":"https://api.github.com/repos/11ty/eleventy/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/11ty/eleventy/downloads","issues_url":"https://api.github.com/repos/11ty/eleventy/issues{/number}","pulls_url":"https://api.github.com/repos/11ty/eleventy/pulls{/number}","milestones_url":"https://api.github.com/repos/11ty/eleventy/milestones{/number}","notifications_url":"https://api.github.com/repos/11ty/eleventy/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/11ty/eleventy/labels{/name}","releases_url":"https://api.github.com/repos/11ty/eleventy/releases{/id}","deployments_url":"https://api.github.com/repos/11ty/eleventy/deployments","created_at":"2017-11-27T05:19:00Z","updated_at":"2024-10-03T07:46:00Z","pushed_at":"2024-10-01T17:23:12Z","git_url":"git://github.com/11ty/eleventy.git","ssh_url":"git@github.com:11ty/eleventy.git","clone_url":"https://github.com/11ty/eleventy.git","svn_url":"https://github.com/11ty/eleventy","homepage":"https://www.11ty.dev/","size":5945,"stargazers_count":16987,"watchers_count":16987,"language":"JavaScript","has_issues":true,"has_projects":false,"has_downloads":true,"has_wiki":false,"has_pages":false,"has_discussions":true,"forks_count":492,"mirror_url":null,"archived":false,"disabled":false,"open_issues_count":387,"license":{"key":"mit","name":"MIT License","spdx_id":"MIT","url":"https://api.github.com/licenses/mit","node_id":"MDc6TGljZW5zZTEz"},"allow_forking":true,"is_template":false,"web_commit_signoff_required":false,"topics":["blog-engine","documentation-tool","eleventy","javascript","static-site-generator","templates"],"visibility":"public","forks":492,"open_issues":387,"watchers":16987,"default_branch":"main","temp_clone_token":null,"custom_properties":{},"organization":{"login":"11ty","id":35147177,"node_id":"MDEyOk9yZ2FuaXphdGlvbjM1MTQ3MTc3","avatar_url":"https://avatars.githubusercontent.com/u/35147177?v=4","gravatar_id":"","url":"https://api.github.com/users/11ty","html_url":"https://github.com/11ty","followers_url":"https://api.github.com/users/11ty/followers","following_url":"https://api.github.com/users/11ty/following{/other_user}","gists_url":"https://api.github.com/users/11ty/gists{/gist_id}","starred_url":"https://api.github.com/users/11ty/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/11ty/subscriptions","organizations_url":"https://api.github.com/users/11ty/orgs","repos_url":"https://api.github.com/users/11ty/repos","events_url":"https://api.github.com/users/11ty/events{/privacy}","received_events_url":"https://api.github.com/users/11ty/received_events","type":"Organization","site_admin":false},"network_count":492,"subscribers_count":89}
+</pre>
+<h3>using the site.json static date include from _data</h3>
+<ul>
+<li>
+<p>hello world site</p>
+</li>
+<li>
+<p>Test site</p>
+</li>
+</ul>
+<h3>rendering holiday object as json with the json filter inside a <code>&lt;pre&gt;</code> tag</h3>
+<pre>
+
+[{"title":"Christmas","date":"25/12"},{"title":"Boxing Day","date":"26/12"},{"title":"New Years Day","date":"1/1"}]
+
+</pre>
+<h3>use a for loop to <a href="https://shopify.github.io/liquid/tags/iteration/">iterate</a> over the holidays in the site.json static data</h3>
+<hr>
+<p>Christmas</p>
+<p>Boxing Day</p>
+<p>New Years Day</p>
+<h3>The for loop iterates over holidays in site and rendering the title snd date into specified table data tags. An alternate option would be the <a href="https://shopify.github.io/liquid/tags/iteration/#tablerow">tablerow</a> iteration loop</h3>
+<hr>
+<table>
+  <tr>
+    <th>Title:</th>
+    <th>Date:</th>
+  </tr>
+  <tr>
+    <td>Christmas</td>
+    <td>25/12</td>
+  </tr>
+  <tr>
+    <td>Boxing Day</td>
+    <td>26/12</td>
+  </tr>
+  <tr>
+    <td>New Years Day</td>
+    <td>1/1</td>
+  </tr>
+</table>
+<h3>now... use the data from https://www.api.gov.uk/gds/bank-holidays/#bank-holidays https://www.gov.uk/bank-holidays.json using the same approach as the testData.mjs example</h3>
+<h4>start simple, render the whole lot json</h4>
+<h4>get fancy, make a table</h4>
+<h4>copy this https://www.gov.uk/bank-holidays style (will need code to split into years)</h4>
+<h4>show off and use some nice css framework for a ....</h4>

@@ -1,0 +1,18 @@
+{
+  "title": "hello world site",
+  "status": "Test site",
+  "holidays": [
+    {
+      "title": "Christmas",
+      "date": "25/12"
+    },
+    {
+      "title": "Boxing Day",
+      "date": "26/12"
+    },
+    {
+      "title": "New Years Day",
+      "date": "1/1"
+    }
+  ]
+}
