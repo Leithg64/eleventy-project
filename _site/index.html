@@ -1,57 +1,567 @@
-<h1>Liquid experiments</h1>
-<h3>the string literal &quot;now&quot; is passed to the <a href="https://shopify.github.io/liquid/filters/date/">date</a> filter and will be evalualated as current date and time, and formated with the formating template string</h3>
-<p>2024-10-03</p>
-<h3>we pass a string literal to the <a href="https://shopify.github.io/liquid/filters/split/">split</a> filter with ', ' as the delimiter an the result is assigned to the variable</h3>
-<p>beatles with <a href="https://shopify.github.io/liquid/tags/variable/#assign">assign</a></p>
-<p>John Paul George Ringo</p>
-<h2>a example from the eleventy documentation including remote data</h2>
-<p>11ty/eleventy</p>
+<head>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<!-- # Liquid experiments
+
+### the string literal "now" is passed to the [date](https://shopify.github.io/liquid/filters/date/) filter and will be evalualated as current date and time, and formated with the formating template string
+
+2024-10-04
+
+### we pass a string literal to the [split](https://shopify.github.io/liquid/filters/split/) filter with ', ' as the delimiter an the result is assigned to the variable
+
+beatles with [assign](https://shopify.github.io/liquid/tags/variable/#assign)
+
+
+
+John Paul George Ringo 
+
+## a example from the eleventy documentation including remote data
+
+11ty/eleventy
+
 <pre>
 
-{"id":112150776,"node_id":"MDEwOlJlcG9zaXRvcnkxMTIxNTA3NzY=","name":"eleventy","full_name":"11ty/eleventy","private":false,"owner":{"login":"11ty","id":35147177,"node_id":"MDEyOk9yZ2FuaXphdGlvbjM1MTQ3MTc3","avatar_url":"https://avatars.githubusercontent.com/u/35147177?v=4","gravatar_id":"","url":"https://api.github.com/users/11ty","html_url":"https://github.com/11ty","followers_url":"https://api.github.com/users/11ty/followers","following_url":"https://api.github.com/users/11ty/following{/other_user}","gists_url":"https://api.github.com/users/11ty/gists{/gist_id}","starred_url":"https://api.github.com/users/11ty/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/11ty/subscriptions","organizations_url":"https://api.github.com/users/11ty/orgs","repos_url":"https://api.github.com/users/11ty/repos","events_url":"https://api.github.com/users/11ty/events{/privacy}","received_events_url":"https://api.github.com/users/11ty/received_events","type":"Organization","site_admin":false},"html_url":"https://github.com/11ty/eleventy","description":"A simpler site generator. Transforms a directory of templates (of varying types) into HTML.","fork":false,"url":"https://api.github.com/repos/11ty/eleventy","forks_url":"https://api.github.com/repos/11ty/eleventy/forks","keys_url":"https://api.github.com/repos/11ty/eleventy/keys{/key_id}","collaborators_url":"https://api.github.com/repos/11ty/eleventy/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/11ty/eleventy/teams","hooks_url":"https://api.github.com/repos/11ty/eleventy/hooks","issue_events_url":"https://api.github.com/repos/11ty/eleventy/issues/events{/number}","events_url":"https://api.github.com/repos/11ty/eleventy/events","assignees_url":"https://api.github.com/repos/11ty/eleventy/assignees{/user}","branches_url":"https://api.github.com/repos/11ty/eleventy/branches{/branch}","tags_url":"https://api.github.com/repos/11ty/eleventy/tags","blobs_url":"https://api.github.com/repos/11ty/eleventy/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/11ty/eleventy/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/11ty/eleventy/git/refs{/sha}","trees_url":"https://api.github.com/repos/11ty/eleventy/git/trees{/sha}","statuses_url":"https://api.github.com/repos/11ty/eleventy/statuses/{sha}","languages_url":"https://api.github.com/repos/11ty/eleventy/languages","stargazers_url":"https://api.github.com/repos/11ty/eleventy/stargazers","contributors_url":"https://api.github.com/repos/11ty/eleventy/contributors","subscribers_url":"https://api.github.com/repos/11ty/eleventy/subscribers","subscription_url":"https://api.github.com/repos/11ty/eleventy/subscription","commits_url":"https://api.github.com/repos/11ty/eleventy/commits{/sha}","git_commits_url":"https://api.github.com/repos/11ty/eleventy/git/commits{/sha}","comments_url":"https://api.github.com/repos/11ty/eleventy/comments{/number}","issue_comment_url":"https://api.github.com/repos/11ty/eleventy/issues/comments{/number}","contents_url":"https://api.github.com/repos/11ty/eleventy/contents/{+path}","compare_url":"https://api.github.com/repos/11ty/eleventy/compare/{base}...{head}","merges_url":"https://api.github.com/repos/11ty/eleventy/merges","archive_url":"https://api.github.com/repos/11ty/eleventy/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/11ty/eleventy/downloads","issues_url":"https://api.github.com/repos/11ty/eleventy/issues{/number}","pulls_url":"https://api.github.com/repos/11ty/eleventy/pulls{/number}","milestones_url":"https://api.github.com/repos/11ty/eleventy/milestones{/number}","notifications_url":"https://api.github.com/repos/11ty/eleventy/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/11ty/eleventy/labels{/name}","releases_url":"https://api.github.com/repos/11ty/eleventy/releases{/id}","deployments_url":"https://api.github.com/repos/11ty/eleventy/deployments","created_at":"2017-11-27T05:19:00Z","updated_at":"2024-10-03T07:46:00Z","pushed_at":"2024-10-01T17:23:12Z","git_url":"git://github.com/11ty/eleventy.git","ssh_url":"git@github.com:11ty/eleventy.git","clone_url":"https://github.com/11ty/eleventy.git","svn_url":"https://github.com/11ty/eleventy","homepage":"https://www.11ty.dev/","size":5945,"stargazers_count":16987,"watchers_count":16987,"language":"JavaScript","has_issues":true,"has_projects":false,"has_downloads":true,"has_wiki":false,"has_pages":false,"has_discussions":true,"forks_count":492,"mirror_url":null,"archived":false,"disabled":false,"open_issues_count":387,"license":{"key":"mit","name":"MIT License","spdx_id":"MIT","url":"https://api.github.com/licenses/mit","node_id":"MDc6TGljZW5zZTEz"},"allow_forking":true,"is_template":false,"web_commit_signoff_required":false,"topics":["blog-engine","documentation-tool","eleventy","javascript","static-site-generator","templates"],"visibility":"public","forks":492,"open_issues":387,"watchers":16987,"default_branch":"main","temp_clone_token":null,"custom_properties":{},"organization":{"login":"11ty","id":35147177,"node_id":"MDEyOk9yZ2FuaXphdGlvbjM1MTQ3MTc3","avatar_url":"https://avatars.githubusercontent.com/u/35147177?v=4","gravatar_id":"","url":"https://api.github.com/users/11ty","html_url":"https://github.com/11ty","followers_url":"https://api.github.com/users/11ty/followers","following_url":"https://api.github.com/users/11ty/following{/other_user}","gists_url":"https://api.github.com/users/11ty/gists{/gist_id}","starred_url":"https://api.github.com/users/11ty/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/11ty/subscriptions","organizations_url":"https://api.github.com/users/11ty/orgs","repos_url":"https://api.github.com/users/11ty/repos","events_url":"https://api.github.com/users/11ty/events{/privacy}","received_events_url":"https://api.github.com/users/11ty/received_events","type":"Organization","site_admin":false},"network_count":492,"subscribers_count":89}
+{"id":112150776,"node_id":"MDEwOlJlcG9zaXRvcnkxMTIxNTA3NzY=","name":"eleventy","full_name":"11ty/eleventy","private":false,"owner":{"login":"11ty","id":35147177,"node_id":"MDEyOk9yZ2FuaXphdGlvbjM1MTQ3MTc3","avatar_url":"https://avatars.githubusercontent.com/u/35147177?v=4","gravatar_id":"","url":"https://api.github.com/users/11ty","html_url":"https://github.com/11ty","followers_url":"https://api.github.com/users/11ty/followers","following_url":"https://api.github.com/users/11ty/following{/other_user}","gists_url":"https://api.github.com/users/11ty/gists{/gist_id}","starred_url":"https://api.github.com/users/11ty/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/11ty/subscriptions","organizations_url":"https://api.github.com/users/11ty/orgs","repos_url":"https://api.github.com/users/11ty/repos","events_url":"https://api.github.com/users/11ty/events{/privacy}","received_events_url":"https://api.github.com/users/11ty/received_events","type":"Organization","site_admin":false},"html_url":"https://github.com/11ty/eleventy","description":"A simpler site generator. Transforms a directory of templates (of varying types) into HTML.","fork":false,"url":"https://api.github.com/repos/11ty/eleventy","forks_url":"https://api.github.com/repos/11ty/eleventy/forks","keys_url":"https://api.github.com/repos/11ty/eleventy/keys{/key_id}","collaborators_url":"https://api.github.com/repos/11ty/eleventy/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/11ty/eleventy/teams","hooks_url":"https://api.github.com/repos/11ty/eleventy/hooks","issue_events_url":"https://api.github.com/repos/11ty/eleventy/issues/events{/number}","events_url":"https://api.github.com/repos/11ty/eleventy/events","assignees_url":"https://api.github.com/repos/11ty/eleventy/assignees{/user}","branches_url":"https://api.github.com/repos/11ty/eleventy/branches{/branch}","tags_url":"https://api.github.com/repos/11ty/eleventy/tags","blobs_url":"https://api.github.com/repos/11ty/eleventy/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/11ty/eleventy/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/11ty/eleventy/git/refs{/sha}","trees_url":"https://api.github.com/repos/11ty/eleventy/git/trees{/sha}","statuses_url":"https://api.github.com/repos/11ty/eleventy/statuses/{sha}","languages_url":"https://api.github.com/repos/11ty/eleventy/languages","stargazers_url":"https://api.github.com/repos/11ty/eleventy/stargazers","contributors_url":"https://api.github.com/repos/11ty/eleventy/contributors","subscribers_url":"https://api.github.com/repos/11ty/eleventy/subscribers","subscription_url":"https://api.github.com/repos/11ty/eleventy/subscription","commits_url":"https://api.github.com/repos/11ty/eleventy/commits{/sha}","git_commits_url":"https://api.github.com/repos/11ty/eleventy/git/commits{/sha}","comments_url":"https://api.github.com/repos/11ty/eleventy/comments{/number}","issue_comment_url":"https://api.github.com/repos/11ty/eleventy/issues/comments{/number}","contents_url":"https://api.github.com/repos/11ty/eleventy/contents/{+path}","compare_url":"https://api.github.com/repos/11ty/eleventy/compare/{base}...{head}","merges_url":"https://api.github.com/repos/11ty/eleventy/merges","archive_url":"https://api.github.com/repos/11ty/eleventy/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/11ty/eleventy/downloads","issues_url":"https://api.github.com/repos/11ty/eleventy/issues{/number}","pulls_url":"https://api.github.com/repos/11ty/eleventy/pulls{/number}","milestones_url":"https://api.github.com/repos/11ty/eleventy/milestones{/number}","notifications_url":"https://api.github.com/repos/11ty/eleventy/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/11ty/eleventy/labels{/name}","releases_url":"https://api.github.com/repos/11ty/eleventy/releases{/id}","deployments_url":"https://api.github.com/repos/11ty/eleventy/deployments","created_at":"2017-11-27T05:19:00Z","updated_at":"2024-10-04T12:59:26Z","pushed_at":"2024-10-01T17:23:12Z","git_url":"git://github.com/11ty/eleventy.git","ssh_url":"git@github.com:11ty/eleventy.git","clone_url":"https://github.com/11ty/eleventy.git","svn_url":"https://github.com/11ty/eleventy","homepage":"https://www.11ty.dev/","size":5945,"stargazers_count":16999,"watchers_count":16999,"language":"JavaScript","has_issues":true,"has_projects":false,"has_downloads":true,"has_wiki":false,"has_pages":false,"has_discussions":true,"forks_count":491,"mirror_url":null,"archived":false,"disabled":false,"open_issues_count":388,"license":{"key":"mit","name":"MIT License","spdx_id":"MIT","url":"https://api.github.com/licenses/mit","node_id":"MDc6TGljZW5zZTEz"},"allow_forking":true,"is_template":false,"web_commit_signoff_required":false,"topics":["blog-engine","documentation-tool","eleventy","javascript","static-site-generator","templates"],"visibility":"public","forks":491,"open_issues":388,"watchers":16999,"default_branch":"main","temp_clone_token":null,"custom_properties":{},"organization":{"login":"11ty","id":35147177,"node_id":"MDEyOk9yZ2FuaXphdGlvbjM1MTQ3MTc3","avatar_url":"https://avatars.githubusercontent.com/u/35147177?v=4","gravatar_id":"","url":"https://api.github.com/users/11ty","html_url":"https://github.com/11ty","followers_url":"https://api.github.com/users/11ty/followers","following_url":"https://api.github.com/users/11ty/following{/other_user}","gists_url":"https://api.github.com/users/11ty/gists{/gist_id}","starred_url":"https://api.github.com/users/11ty/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/11ty/subscriptions","organizations_url":"https://api.github.com/users/11ty/orgs","repos_url":"https://api.github.com/users/11ty/repos","events_url":"https://api.github.com/users/11ty/events{/privacy}","received_events_url":"https://api.github.com/users/11ty/received_events","type":"Organization","site_admin":false},"network_count":491,"subscribers_count":89}
 </pre>
-<h3>using the site.json static date include from _data</h3>
-<ul>
-<li>
-<p>hello world site</p>
-</li>
-<li>
-<p>Test site</p>
-</li>
-</ul>
-<h3>rendering holiday object as json with the json filter inside a <code>&lt;pre&gt;</code> tag</h3>
+
+### using the site.json static date include from \_data
+
+- hello world site
+
+- Test site
+
+### rendering holiday object as json with the json filter inside a `<pre>` tag
+
 <pre>
 
 [{"title":"Christmas","date":"25/12"},{"title":"Boxing Day","date":"26/12"},{"title":"New Years Day","date":"1/1"}]
 
 </pre>
-<h3>use a for loop to <a href="https://shopify.github.io/liquid/tags/iteration/">iterate</a> over the holidays in the site.json static data</h3>
-<hr>
-<p>Christmas</p>
-<p>Boxing Day</p>
-<p>New Years Day</p>
-<h3>The for loop iterates over holidays in site and rendering the title snd date into specified table data tags. An alternate option would be the <a href="https://shopify.github.io/liquid/tags/iteration/#tablerow">tablerow</a> iteration loop</h3>
-<hr>
+
+### use a for loop to [iterate](https://shopify.github.io/liquid/tags/iteration/) over the holidays in the site.json static data
+
+---
+
+
+
+Christmas
+
+
+
+
+Boxing Day
+
+
+
+
+New Years Day
+
+
+
+
+### The for loop iterates over holidays in site and rendering the title snd date into specified table data tags. An alternate option would be the [tablerow](https://shopify.github.io/liquid/tags/iteration/#tablerow) iteration loop
+
+---
+
 <table>
   <tr>
     <th>Title:</th>
     <th>Date:</th>
   </tr>
+  
   <tr>
     <td>Christmas</td>
     <td>25/12</td>
   </tr>
+
   <tr>
     <td>Boxing Day</td>
     <td>26/12</td>
   </tr>
+
   <tr>
     <td>New Years Day</td>
     <td>1/1</td>
   </tr>
+
 </table>
-<h3>now... use the data from https://www.api.gov.uk/gds/bank-holidays/#bank-holidays https://www.gov.uk/bank-holidays.json using the same approach as the testData.mjs example</h3>
-<h4>start simple, render the whole lot json</h4>
-<h4>get fancy, make a table</h4>
-<h4>copy this https://www.gov.uk/bank-holidays style (will need code to split into years)</h4>
-<h4>show off and use some nice css framework for a ....</h4>
+
+### now... use the data from https://www.api.gov.uk/gds/bank-holidays/#bank-holidays https://www.gov.uk/bank-holidays.json using the same approach as the testData.mjs example
+
+#### start simple, render the whole lot .json
+
+#### get fancy, make a table
+
+#### copy this https://www.gov.uk/bank-holidays style (will need code to split into years)
+
+#### show off and use some nice css framework for a .... -->
+<hr>
+<h2>layout: base.njk
+title: Bank Holidays
+eleventyComputed:
+bankHolidays: bankHolidays</h2>
+<h1>Bank Holidays</h1>
+<h2>Raw JSON Data:</h2>
+<pre>{"england-and-wales":{"division":"england-and-wales","events":[{"title":"New Year’s Day","date":"2018-01-01","notes":"","bunting":true},{"title":"Good Friday","date":"2018-03-30","notes":"","bunting":false},{"title":"Easter Monday","date":"2018-04-02","notes":"","bunting":true},{"title":"Early May bank holiday","date":"2018-05-07","notes":"","bunting":true},{"title":"Spring bank holiday","date":"2018-05-28","notes":"","bunting":true},{"title":"Summer bank holiday","date":"2018-08-27","notes":"","bunting":true},{"title":"Christmas Day","date":"2018-12-25","notes":"","bunting":true},{"title":"Boxing Day","date":"2018-12-26","notes":"","bunting":true},{"title":"New Year’s Day","date":"2019-01-01","notes":"","bunting":true},{"title":"Good Friday","date":"2019-04-19","notes":"","bunting":false},{"title":"Easter Monday","date":"2019-04-22","notes":"","bunting":true},{"title":"Early May bank holiday","date":"2019-05-06","notes":"","bunting":true},{"title":"Spring bank holiday","date":"2019-05-27","notes":"","bunting":true},{"title":"Summer bank holiday","date":"2019-08-26","notes":"","bunting":true},{"title":"Christmas Day","date":"2019-12-25","notes":"","bunting":true},{"title":"Boxing Day","date":"2019-12-26","notes":"","bunting":true},{"title":"New Year’s Day","date":"2020-01-01","notes":"","bunting":true},{"title":"Good Friday","date":"2020-04-10","notes":"","bunting":false},{"title":"Easter Monday","date":"2020-04-13","notes":"","bunting":false},{"title":"Early May bank holiday (VE day)","date":"2020-05-08","notes":"","bunting":true},{"title":"Spring bank holiday","date":"2020-05-25","notes":"","bunting":true},{"title":"Summer bank holiday","date":"2020-08-31","notes":"","bunting":true},{"title":"Christmas Day","date":"2020-12-25","notes":"","bunting":true},{"title":"Boxing Day","date":"2020-12-28","notes":"Substitute day","bunting":true},{"title":"New Year’s Day","date":"2021-01-01","notes":"","bunting":true},{"title":"Good Friday","date":"2021-04-02","notes":"","bunting":false},{"title":"Easter Monday","date":"2021-04-05","notes":"","bunting":true},{"title":"Early May bank holiday","date":"2021-05-03","notes":"","bunting":true},{"title":"Spring bank holiday","date":"2021-05-31","notes":"","bunting":true},{"title":"Summer bank holiday","date":"2021-08-30","notes":"","bunting":true},{"title":"Christmas Day","date":"2021-12-27","notes":"Substitute day","bunting":true},{"title":"Boxing Day","date":"2021-12-28","notes":"Substitute day","bunting":true},{"title":"New Year’s Day","date":"2022-01-03","notes":"Substitute day","bunting":true},{"title":"Good Friday","date":"2022-04-15","notes":"","bunting":false},{"title":"Easter Monday","date":"2022-04-18","notes":"","bunting":true},{"title":"Early May bank holiday","date":"2022-05-02","notes":"","bunting":true},{"title":"Spring bank holiday","date":"2022-06-02","notes":"","bunting":true},{"title":"Platinum Jubilee bank holiday","date":"2022-06-03","notes":"","bunting":true},{"title":"Summer bank holiday","date":"2022-08-29","notes":"","bunting":true},{"title":"Bank Holiday for the State Funeral of Queen Elizabeth II","date":"2022-09-19","notes":"","bunting":false},{"title":"Boxing Day","date":"2022-12-26","notes":"","bunting":true},{"title":"Christmas Day","date":"2022-12-27","notes":"Substitute day","bunting":true},{"title":"New Year’s Day","date":"2023-01-02","notes":"Substitute day","bunting":true},{"title":"Good Friday","date":"2023-04-07","notes":"","bunting":false},{"title":"Easter Monday","date":"2023-04-10","notes":"","bunting":true},{"title":"Early May bank holiday","date":"2023-05-01","notes":"","bunting":true},{"title":"Bank holiday for the coronation of King Charles III","date":"2023-05-08","notes":"","bunting":true},{"title":"Spring bank holiday","date":"2023-05-29","notes":"","bunting":true},{"title":"Summer bank holiday","date":"2023-08-28","notes":"","bunting":true},{"title":"Christmas Day","date":"2023-12-25","notes":"","bunting":true},{"title":"Boxing Day","date":"2023-12-26","notes":"","bunting":true},{"title":"New Year’s Day","date":"2024-01-01","notes":"","bunting":true},{"title":"Good Friday","date":"2024-03-29","notes":"","bunting":false},{"title":"Easter Monday","date":"2024-04-01","notes":"","bunting":true},{"title":"Early May bank holiday","date":"2024-05-06","notes":"","bunting":true},{"title":"Spring bank holiday","date":"2024-05-27","notes":"","bunting":true},{"title":"Summer bank holiday","date":"2024-08-26","notes":"","bunting":true},{"title":"Christmas Day","date":"2024-12-25","notes":"","bunting":true},{"title":"Boxing Day","date":"2024-12-26","notes":"","bunting":true},{"title":"New Year’s Day","date":"2025-01-01","notes":"","bunting":true},{"title":"Good Friday","date":"2025-04-18","notes":"","bunting":false},{"title":"Easter Monday","date":"2025-04-21","notes":"","bunting":true},{"title":"Early May bank holiday","date":"2025-05-05","notes":"","bunting":true},{"title":"Spring bank holiday","date":"2025-05-26","notes":"","bunting":true},{"title":"Summer bank holiday","date":"2025-08-25","notes":"","bunting":true},{"title":"Christmas Day","date":"2025-12-25","notes":"","bunting":true},{"title":"Boxing Day","date":"2025-12-26","notes":"","bunting":true},{"title":"New Year’s Day","date":"2026-01-01","notes":"","bunting":true},{"title":"Good Friday","date":"2026-04-03","notes":"","bunting":false},{"title":"Easter Monday","date":"2026-04-06","notes":"","bunting":true},{"title":"Early May bank holiday","date":"2026-05-04","notes":"","bunting":true},{"title":"Spring bank holiday","date":"2026-05-25","notes":"","bunting":true},{"title":"Summer bank holiday","date":"2026-08-31","notes":"","bunting":true},{"title":"Christmas Day","date":"2026-12-25","notes":"","bunting":true},{"title":"Boxing Day","date":"2026-12-28","notes":"Substitute day","bunting":true}]},"scotland":{"division":"scotland","events":[{"title":"New Year’s Day","date":"2018-01-01","notes":"","bunting":true},{"title":"2nd January","date":"2018-01-02","notes":"","bunting":true},{"title":"Good Friday","date":"2018-03-30","notes":"","bunting":false},{"title":"Early May bank holiday","date":"2018-05-07","notes":"","bunting":true},{"title":"Spring bank holiday","date":"2018-05-28","notes":"","bunting":true},{"title":"Summer bank holiday","date":"2018-08-06","notes":"","bunting":true},{"title":"St Andrew’s Day","date":"2018-11-30","notes":"","bunting":true},{"title":"Christmas Day","date":"2018-12-25","notes":"","bunting":true},{"title":"Boxing Day","date":"2018-12-26","notes":"","bunting":true},{"title":"New Year’s Day","date":"2019-01-01","notes":"","bunting":true},{"title":"2nd January","date":"2019-01-02","notes":"","bunting":true},{"title":"Good Friday","date":"2019-04-19","notes":"","bunting":false},{"title":"Early May bank holiday","date":"2019-05-06","notes":"","bunting":true},{"title":"Spring bank holiday","date":"2019-05-27","notes":"","bunting":true},{"title":"Summer bank holiday","date":"2019-08-05","notes":"","bunting":true},{"title":"St Andrew’s Day","date":"2019-12-02","notes":"Substitute day","bunting":true},{"title":"Christmas Day","date":"2019-12-25","notes":"","bunting":true},{"title":"Boxing Day","date":"2019-12-26","notes":"","bunting":true},{"title":"New Year’s Day","date":"2020-01-01","notes":"","bunting":true},{"title":"2nd January","date":"2020-01-02","notes":"","bunting":true},{"title":"Good Friday","date":"2020-04-10","notes":"","bunting":false},{"title":"Early May bank holiday (VE day)","date":"2020-05-08","notes":"","bunting":true},{"title":"Spring bank holiday","date":"2020-05-25","notes":"","bunting":true},{"title":"Summer bank holiday","date":"2020-08-03","notes":"","bunting":true},{"title":"St Andrew’s Day","date":"2020-11-30","notes":"","bunting":true},{"title":"Christmas Day","date":"2020-12-25","notes":"","bunting":true},{"title":"Boxing Day","date":"2020-12-28","notes":"Substitute day","bunting":true},{"title":"New Year’s Day","date":"2021-01-01","notes":"","bunting":true},{"title":"2nd January","date":"2021-01-04","notes":"Substitute day","bunting":true},{"title":"Good Friday","date":"2021-04-02","notes":"","bunting":false},{"title":"Early May bank holiday","date":"2021-05-03","notes":"","bunting":true},{"title":"Spring bank holiday","date":"2021-05-31","notes":"","bunting":true},{"title":"Summer bank holiday","date":"2021-08-02","notes":"","bunting":true},{"title":"St Andrew’s Day","date":"2021-11-30","notes":"","bunting":true},{"title":"Christmas Day","date":"2021-12-27","notes":"Substitute day","bunting":true},{"title":"Boxing Day","date":"2021-12-28","notes":"Substitute day","bunting":true},{"title":"New Year’s Day","date":"2022-01-03","notes":"Substitute day","bunting":true},{"title":"2nd January","date":"2022-01-04","notes":"Substitute day","bunting":true},{"title":"Good Friday","date":"2022-04-15","notes":"","bunting":false},{"title":"Early May bank holiday","date":"2022-05-02","notes":"","bunting":true},{"title":"Spring bank holiday","date":"2022-06-02","notes":"","bunting":true},{"title":"Platinum Jubilee bank holiday","date":"2022-06-03","notes":"","bunting":true},{"title":"Summer bank holiday","date":"2022-08-01","notes":"","bunting":true},{"title":"Bank Holiday for the State Funeral of Queen Elizabeth II","date":"2022-09-19","notes":"","bunting":false},{"title":"St Andrew’s Day","date":"2022-11-30","notes":"","bunting":true},{"title":"Boxing Day","date":"2022-12-26","notes":"","bunting":true},{"title":"Christmas Day","date":"2022-12-27","notes":"Substitute day","bunting":true},{"title":"New Year’s Day","date":"2023-01-02","notes":"Substitute day","bunting":true},{"title":"2nd January","date":"2023-01-03","notes":"Substitute day","bunting":true},{"title":"Good Friday","date":"2023-04-07","notes":"","bunting":false},{"title":"Early May bank holiday","date":"2023-05-01","notes":"","bunting":true},{"title":"Bank holiday for the coronation of King Charles III","date":"2023-05-08","notes":"","bunting":true},{"title":"Spring bank holiday","date":"2023-05-29","notes":"","bunting":true},{"title":"Summer bank holiday","date":"2023-08-07","notes":"","bunting":true},{"title":"St Andrew’s Day","date":"2023-11-30","notes":"","bunting":true},{"title":"Christmas Day","date":"2023-12-25","notes":"","bunting":true},{"title":"Boxing Day","date":"2023-12-26","notes":"","bunting":true},{"title":"New Year’s Day","date":"2024-01-01","notes":"","bunting":true},{"title":"2nd January","date":"2024-01-02","notes":"","bunting":true},{"title":"Good Friday","date":"2024-03-29","notes":"","bunting":false},{"title":"Early May bank holiday","date":"2024-05-06","notes":"","bunting":true},{"title":"Spring bank holiday","date":"2024-05-27","notes":"","bunting":true},{"title":"Summer bank holiday","date":"2024-08-05","notes":"","bunting":true},{"title":"St Andrew’s Day","date":"2024-12-02","notes":"Substitute day","bunting":true},{"title":"Christmas Day","date":"2024-12-25","notes":"","bunting":true},{"title":"Boxing Day","date":"2024-12-26","notes":"","bunting":true},{"title":"New Year’s Day","date":"2025-01-01","notes":"","bunting":true},{"title":"2nd January","date":"2025-01-02","notes":"","bunting":true},{"title":"Good Friday","date":"2025-04-18","notes":"","bunting":false},{"title":"Early May bank holiday","date":"2025-05-05","notes":"","bunting":true},{"title":"Spring bank holiday","date":"2025-05-26","notes":"","bunting":true},{"title":"Summer bank holiday","date":"2025-08-04","notes":"","bunting":true},{"title":"St Andrew’s Day","date":"2025-12-01","notes":"Substitute day","bunting":true},{"title":"Christmas Day","date":"2025-12-25","notes":"","bunting":true},{"title":"Boxing Day","date":"2025-12-26","notes":"","bunting":true},{"title":"New Year’s Day","date":"2026-01-01","notes":"","bunting":true},{"title":"2nd January","date":"2026-01-02","notes":"","bunting":true},{"title":"Good Friday","date":"2026-04-03","notes":"","bunting":false},{"title":"Early May bank holiday","date":"2026-05-04","notes":"","bunting":true},{"title":"Spring bank holiday","date":"2026-05-25","notes":"","bunting":true},{"title":"Summer bank holiday","date":"2026-08-03","notes":"","bunting":true},{"title":"St Andrew’s Day","date":"2026-11-30","notes":"","bunting":true},{"title":"Christmas Day","date":"2026-12-25","notes":"","bunting":true},{"title":"Boxing Day","date":"2026-12-28","notes":"Substitute day","bunting":true}]},"northern-ireland":{"division":"northern-ireland","events":[{"title":"New Year’s Day","date":"2018-01-01","notes":"","bunting":true},{"title":"St Patrick’s Day","date":"2018-03-19","notes":"Substitute day","bunting":true},{"title":"Good Friday","date":"2018-03-30","notes":"","bunting":false},{"title":"Easter Monday","date":"2018-04-02","notes":"","bunting":true},{"title":"Early May bank holiday","date":"2018-05-07","notes":"","bunting":true},{"title":"Spring bank holiday","date":"2018-05-28","notes":"","bunting":true},{"title":"Battle of the Boyne (Orangemen’s Day)","date":"2018-07-12","notes":"","bunting":false},{"title":"Summer bank holiday","date":"2018-08-27","notes":"","bunting":true},{"title":"Christmas Day","date":"2018-12-25","notes":"","bunting":true},{"title":"Boxing Day","date":"2018-12-26","notes":"","bunting":true},{"title":"New Year’s Day","date":"2019-01-01","notes":"","bunting":true},{"title":"St Patrick’s Day","date":"2019-03-18","notes":"Substitute day","bunting":true},{"title":"Good Friday","date":"2019-04-19","notes":"","bunting":false},{"title":"Easter Monday","date":"2019-04-22","notes":"","bunting":true},{"title":"Early May bank holiday","date":"2019-05-06","notes":"","bunting":true},{"title":"Spring bank holiday","date":"2019-05-27","notes":"","bunting":true},{"title":"Battle of the Boyne (Orangemen’s Day)","date":"2019-07-12","notes":"","bunting":false},{"title":"Summer bank holiday","date":"2019-08-26","notes":"","bunting":true},{"title":"Christmas Day","date":"2019-12-25","notes":"","bunting":true},{"title":"Boxing Day","date":"2019-12-26","notes":"","bunting":true},{"title":"New Year’s Day","date":"2020-01-01","notes":"","bunting":true},{"title":"St Patrick’s Day","date":"2020-03-17","notes":"","bunting":true},{"title":"Good Friday","date":"2020-04-10","notes":"","bunting":false},{"title":"Easter Monday","date":"2020-04-13","notes":"","bunting":false},{"title":"Early May bank holiday (VE day)","date":"2020-05-08","notes":"","bunting":true},{"title":"Spring bank holiday","date":"2020-05-25","notes":"","bunting":true},{"title":"Battle of the Boyne (Orangemen’s Day)","date":"2020-07-13","notes":"Substitute day","bunting":false},{"title":"Summer bank holiday","date":"2020-08-31","notes":"","bunting":true},{"title":"Christmas Day","date":"2020-12-25","notes":"","bunting":true},{"title":"Boxing Day","date":"2020-12-28","notes":"Substitute day","bunting":true},{"title":"New Year’s Day","date":"2021-01-01","notes":"","bunting":true},{"title":"St Patrick’s Day","date":"2021-03-17","notes":"","bunting":true},{"title":"Good Friday","date":"2021-04-02","notes":"","bunting":false},{"title":"Easter Monday","date":"2021-04-05","notes":"","bunting":true},{"title":"Early May bank holiday","date":"2021-05-03","notes":"","bunting":true},{"title":"Spring bank holiday","date":"2021-05-31","notes":"","bunting":true},{"title":"Battle of the Boyne (Orangemen’s Day)","date":"2021-07-12","notes":"","bunting":false},{"title":"Summer bank holiday","date":"2021-08-30","notes":"","bunting":true},{"title":"Christmas Day","date":"2021-12-27","notes":"Substitute day","bunting":true},{"title":"Boxing Day","date":"2021-12-28","notes":"Substitute day","bunting":true},{"title":"New Year’s Day","date":"2022-01-03","notes":"Substitute day","bunting":true},{"title":"St Patrick’s Day","date":"2022-03-17","notes":"","bunting":true},{"title":"Good Friday","date":"2022-04-15","notes":"","bunting":false},{"title":"Easter Monday","date":"2022-04-18","notes":"","bunting":true},{"title":"Early May bank holiday","date":"2022-05-02","notes":"","bunting":true},{"title":"Spring bank holiday","date":"2022-06-02","notes":"","bunting":true},{"title":"Platinum Jubilee bank holiday","date":"2022-06-03","notes":"","bunting":true},{"title":"Battle of the Boyne (Orangemen’s Day)","date":"2022-07-12","notes":"","bunting":false},{"title":"Summer bank holiday","date":"2022-08-29","notes":"","bunting":true},{"title":"Bank Holiday for the State Funeral of Queen Elizabeth II","date":"2022-09-19","notes":"","bunting":false},{"title":"Boxing Day","date":"2022-12-26","notes":"","bunting":true},{"title":"Christmas Day","date":"2022-12-27","notes":"Substitute day","bunting":true},{"title":"New Year’s Day","date":"2023-01-02","notes":"Substitute day","bunting":true},{"title":"St Patrick’s Day","date":"2023-03-17","notes":"","bunting":true},{"title":"Good Friday","date":"2023-04-07","notes":"","bunting":false},{"title":"Easter Monday","date":"2023-04-10","notes":"","bunting":true},{"title":"Early May bank holiday","date":"2023-05-01","notes":"","bunting":true},{"title":"Bank holiday for the coronation of King Charles III","date":"2023-05-08","notes":"","bunting":true},{"title":"Spring bank holiday","date":"2023-05-29","notes":"","bunting":true},{"title":"Battle of the Boyne (Orangemen’s Day)","date":"2023-07-12","notes":"","bunting":false},{"title":"Summer bank holiday","date":"2023-08-28","notes":"","bunting":true},{"title":"Christmas Day","date":"2023-12-25","notes":"","bunting":true},{"title":"Boxing Day","date":"2023-12-26","notes":"","bunting":true},{"title":"New Year’s Day","date":"2024-01-01","notes":"","bunting":true},{"title":"St Patrick’s Day","date":"2024-03-18","notes":"Substitute day","bunting":true},{"title":"Good Friday","date":"2024-03-29","notes":"","bunting":false},{"title":"Easter Monday","date":"2024-04-01","notes":"","bunting":true},{"title":"Early May bank holiday","date":"2024-05-06","notes":"","bunting":true},{"title":"Spring bank holiday","date":"2024-05-27","notes":"","bunting":true},{"title":"Battle of the Boyne (Orangemen’s Day)","date":"2024-07-12","notes":"","bunting":false},{"title":"Summer bank holiday","date":"2024-08-26","notes":"","bunting":true},{"title":"Christmas Day","date":"2024-12-25","notes":"","bunting":true},{"title":"Boxing Day","date":"2024-12-26","notes":"","bunting":true},{"title":"New Year’s Day","date":"2025-01-01","notes":"","bunting":true},{"title":"St Patrick’s Day","date":"2025-03-17","notes":"","bunting":true},{"title":"Good Friday","date":"2025-04-18","notes":"","bunting":false},{"title":"Easter Monday","date":"2025-04-21","notes":"","bunting":true},{"title":"Early May bank holiday","date":"2025-05-05","notes":"","bunting":true},{"title":"Spring bank holiday","date":"2025-05-26","notes":"","bunting":true},{"title":"Battle of the Boyne (Orangemen’s Day)","date":"2025-07-14","notes":"Substitute day","bunting":false},{"title":"Summer bank holiday","date":"2025-08-25","notes":"","bunting":true},{"title":"Christmas Day","date":"2025-12-25","notes":"","bunting":true},{"title":"Boxing Day","date":"2025-12-26","notes":"","bunting":true},{"title":"New Year’s Day","date":"2026-01-01","notes":"","bunting":true},{"title":"St Patrick’s Day","date":"2026-03-17","notes":"","bunting":true},{"title":"Good Friday","date":"2026-04-03","notes":"","bunting":false},{"title":"Easter Monday","date":"2026-04-06","notes":"","bunting":true},{"title":"Early May bank holiday","date":"2026-05-04","notes":"","bunting":true},{"title":"Spring bank holiday","date":"2026-05-25","notes":"","bunting":true},{"title":"Battle of the Boyne (Orangemen’s Day)","date":"2026-07-13","notes":"Substitute day","bunting":false},{"title":"Summer bank holiday","date":"2026-08-31","notes":"","bunting":true},{"title":"Christmas Day","date":"2026-12-25","notes":"","bunting":true},{"title":"Boxing Day","date":"2026-12-28","notes":"Substitute day","bunting":true}]}}</pre>  
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Date</th>
+      <th>Notes</th>
+      <th>Bunting</th>
+    </tr>
+  </thead>
+  <tbody>
+<p><tr>
+<td>New Year’s Day</td>
+<td>2018-01-01</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Good Friday</td>
+<td>2018-03-30</td>
+<td>None</td>
+<td>No</td>
+</tr></p>
+<p><tr>
+<td>Easter Monday</td>
+<td>2018-04-02</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Early May bank holiday</td>
+<td>2018-05-07</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Spring bank holiday</td>
+<td>2018-05-28</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Summer bank holiday</td>
+<td>2018-08-27</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Christmas Day</td>
+<td>2018-12-25</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Boxing Day</td>
+<td>2018-12-26</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>New Year’s Day</td>
+<td>2019-01-01</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Good Friday</td>
+<td>2019-04-19</td>
+<td>None</td>
+<td>No</td>
+</tr></p>
+<p><tr>
+<td>Easter Monday</td>
+<td>2019-04-22</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Early May bank holiday</td>
+<td>2019-05-06</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Spring bank holiday</td>
+<td>2019-05-27</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Summer bank holiday</td>
+<td>2019-08-26</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Christmas Day</td>
+<td>2019-12-25</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Boxing Day</td>
+<td>2019-12-26</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>New Year’s Day</td>
+<td>2020-01-01</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Good Friday</td>
+<td>2020-04-10</td>
+<td>None</td>
+<td>No</td>
+</tr></p>
+<p><tr>
+<td>Easter Monday</td>
+<td>2020-04-13</td>
+<td>None</td>
+<td>No</td>
+</tr></p>
+<p><tr>
+<td>Early May bank holiday (VE day)</td>
+<td>2020-05-08</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Spring bank holiday</td>
+<td>2020-05-25</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Summer bank holiday</td>
+<td>2020-08-31</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Christmas Day</td>
+<td>2020-12-25</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Boxing Day</td>
+<td>2020-12-28</td>
+<td>Substitute day</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>New Year’s Day</td>
+<td>2021-01-01</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Good Friday</td>
+<td>2021-04-02</td>
+<td>None</td>
+<td>No</td>
+</tr></p>
+<p><tr>
+<td>Easter Monday</td>
+<td>2021-04-05</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Early May bank holiday</td>
+<td>2021-05-03</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Spring bank holiday</td>
+<td>2021-05-31</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Summer bank holiday</td>
+<td>2021-08-30</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Christmas Day</td>
+<td>2021-12-27</td>
+<td>Substitute day</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Boxing Day</td>
+<td>2021-12-28</td>
+<td>Substitute day</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>New Year’s Day</td>
+<td>2022-01-03</td>
+<td>Substitute day</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Good Friday</td>
+<td>2022-04-15</td>
+<td>None</td>
+<td>No</td>
+</tr></p>
+<p><tr>
+<td>Easter Monday</td>
+<td>2022-04-18</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Early May bank holiday</td>
+<td>2022-05-02</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Spring bank holiday</td>
+<td>2022-06-02</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Platinum Jubilee bank holiday</td>
+<td>2022-06-03</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Summer bank holiday</td>
+<td>2022-08-29</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Bank Holiday for the State Funeral of Queen Elizabeth II</td>
+<td>2022-09-19</td>
+<td>None</td>
+<td>No</td>
+</tr></p>
+<p><tr>
+<td>Boxing Day</td>
+<td>2022-12-26</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Christmas Day</td>
+<td>2022-12-27</td>
+<td>Substitute day</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>New Year’s Day</td>
+<td>2023-01-02</td>
+<td>Substitute day</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Good Friday</td>
+<td>2023-04-07</td>
+<td>None</td>
+<td>No</td>
+</tr></p>
+<p><tr>
+<td>Easter Monday</td>
+<td>2023-04-10</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Early May bank holiday</td>
+<td>2023-05-01</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Bank holiday for the coronation of King Charles III</td>
+<td>2023-05-08</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Spring bank holiday</td>
+<td>2023-05-29</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Summer bank holiday</td>
+<td>2023-08-28</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Christmas Day</td>
+<td>2023-12-25</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Boxing Day</td>
+<td>2023-12-26</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>New Year’s Day</td>
+<td>2024-01-01</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Good Friday</td>
+<td>2024-03-29</td>
+<td>None</td>
+<td>No</td>
+</tr></p>
+<p><tr>
+<td>Easter Monday</td>
+<td>2024-04-01</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Early May bank holiday</td>
+<td>2024-05-06</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Spring bank holiday</td>
+<td>2024-05-27</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Summer bank holiday</td>
+<td>2024-08-26</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Christmas Day</td>
+<td>2024-12-25</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Boxing Day</td>
+<td>2024-12-26</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>New Year’s Day</td>
+<td>2025-01-01</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Good Friday</td>
+<td>2025-04-18</td>
+<td>None</td>
+<td>No</td>
+</tr></p>
+<p><tr>
+<td>Easter Monday</td>
+<td>2025-04-21</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Early May bank holiday</td>
+<td>2025-05-05</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Spring bank holiday</td>
+<td>2025-05-26</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Summer bank holiday</td>
+<td>2025-08-25</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Christmas Day</td>
+<td>2025-12-25</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Boxing Day</td>
+<td>2025-12-26</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>New Year’s Day</td>
+<td>2026-01-01</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Good Friday</td>
+<td>2026-04-03</td>
+<td>None</td>
+<td>No</td>
+</tr></p>
+<p><tr>
+<td>Easter Monday</td>
+<td>2026-04-06</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Early May bank holiday</td>
+<td>2026-05-04</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Spring bank holiday</td>
+<td>2026-05-25</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Summer bank holiday</td>
+<td>2026-08-31</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Christmas Day</td>
+<td>2026-12-25</td>
+<td>None</td>
+<td>true</td>
+</tr></p>
+<p><tr>
+<td>Boxing Day</td>
+<td>2026-12-28</td>
+<td>Substitute day</td>
+<td>true</td>
+</tr></p>
+  </tbody>
+</table>
