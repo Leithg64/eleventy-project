@@ -1,6 +1,10 @@
-<link href="styles.css" rel="stylesheet"></link>
+---
+title: Liquid Testing Site
+layout: layout.njk
+---
 
-<!-- # Liquid experiments
+
+<!-- # Liquid Testing Site
 
 ### the string literal "now" is passed to the [date](https://shopify.github.io/liquid/filters/date/) filter and will be evalualated as current date and time, and formated with the formating template string
 
@@ -121,24 +125,31 @@ beatles with [assign](https://shopify.github.io/liquid/tags/variable/#assign)
     </tr>
   </thead>
 
-### First, a conditional checks the bankHolidays object for relavent data, then that data is iterated over and table rows are created to display the data
+### A conditional checks the bankHolidays object for relavent data, then that data is iterated over and table rows are created to display the data. <br> Meanwhile, the lastYear variable is set as an empty string, and is then checked aganst the current year of the holiday and if different, a new row is created with data that displays the year. The variable is then set to the current year before starting the next iteration.
 
   <tbody>
     {% if bankHolidays["england-and-wales"].events %}
+      {% assign lastYear = "" %}
       {% for event in bankHolidays["england-and-wales"].events %}
-      <tr>
-        <td>{{ event.date }}</td>
-        <td>{{ event.title }}</td>
-        <td>{{ event.notes | default: "None" }}</td>
-        <td>{{ event.bunting | default: "false" }}</td>
-      </tr>
+        {% assign currentYear = event.date | date: "%Y" %}
+        {% if currentYear != lastYear %}
+          <tr>
+            <td>{{ currentYear }}</td>
+          </tr>
+          {% assign lastYear = currentYear %}
+        {% endif %}
+        <tr>
+          <td>{{ event.date }}</td>
+          <td>{{ event.title }}</td>
+          <td>{{ event.notes | default: "None" }}</td>
+          <td>{{ event.bunting | default: "false" }}</td>
+        </tr>
       {% endfor %}
     {% else %}
       <tr><td>No bank holidays available.</td></tr>
     {% endif %}
   </tbody>
-</table> 
-
+</table>
 
 
 
