@@ -1,6 +1,4 @@
-<head>
-  <link rel="stylesheet" href="styles.css">
-</head>
+<link href="styles.css" rel="stylesheet"></link>
 
 <!-- # Liquid experiments
 
@@ -77,46 +75,70 @@ beatles with [assign](https://shopify.github.io/liquid/tags/variable/#assign)
 
 #### get fancy, make a table
 
-#### copy this https://www.gov.uk/bank-holidays style (will need code to split into years)
+#### copy this https://www.gov.uk/bank-holidays style.
 
-#### show off and use some nice css framework for a .... -->
+#### show off and use some nice css framework -->
 
----
-layout: base.njk
-title: Bank Holidays
-eleventyComputed:
-  bankHolidays: bankHolidays
----
 
-# Bank Holidays
-
-<h2>Raw JSON Data:</h2>
-<pre>{{ bankHolidays | jsonify }}</pre>  
-
-<table>
+ <!-- <table>
   <thead>
     <tr>
-      <th>Title</th>
       <th>Date</th>
+      <th>Title</th>
       <th>Notes</th>
       <th>Bunting</th>
     </tr>
   </thead>
   <tbody>
+    {% tablerow event in bankHolidays["england-and-wales"].events %}
+      {{ event.date }}
+    {% endtablerow %}
+    {% tablerow event in bankHolidays["england-and-wales"].events %}
+      {{ event.title }}
+    {% endtablerow %}
+    {% tablerow event in bankHolidays["england-and-wales"].events %}
+      {{ event.notes | default: "None" }}
+    {% endtablerow %}
+    {% tablerow event in bankHolidays["england-and-wales"].events %}
+      {{ event.bunting | default: "false" }}
+    {% endtablerow %}
+   </tbody>  
+</table>  -->
+
+### This code interpolates the bankHolidays variable as a JSON string. The jsonify filter then formats the code into JSON.
+
+<pre>{{ bankHolidays | jsonify }}</pre>  
+
+# Bank Holidays
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Title</th>
+      <th>Notes</th>
+      <th>Bunting</th>
+    </tr>
+  </thead>
+
+### First, a conditional checks the bankHolidays object for relavent data, then that data is iterated over and table rows are created to display the data
+
+  <tbody>
     {% if bankHolidays["england-and-wales"].events %}
       {% for event in bankHolidays["england-and-wales"].events %}
       <tr>
-        <td>{{ event.title }}</td>
         <td>{{ event.date }}</td>
+        <td>{{ event.title }}</td>
         <td>{{ event.notes | default: "None" }}</td>
-        <td>{{ event.bunting | default: "No" }}</td>
+        <td>{{ event.bunting | default: "false" }}</td>
       </tr>
       {% endfor %}
     {% else %}
-      <tr><td colspan="4">No bank holidays available.</td></tr>
+      <tr><td>No bank holidays available.</td></tr>
     {% endif %}
   </tbody>
-</table>
+</table> 
+
 
 
 
