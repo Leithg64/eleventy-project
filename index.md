@@ -2,7 +2,29 @@
 title: Liquid Testing Site
 layout: layout.njk
 ---
+ 
+<style>
+ body {
+  margin: 10px;
+  font-family: Arial, Helvetica, sans-serif;
 
+ }
+
+ td {
+  padding-left: 10px;
+ }
+
+ .sectionHeadings {
+  border-bottom: 2px solid black;
+  border-width: 100%;
+ }
+
+ .rawJSON {
+  height: 40vh;
+  overflow: scroll;
+ }
+
+</style>
 
 <!-- # Liquid Testing Site
 
@@ -71,20 +93,7 @@ beatles with [assign](https://shopify.github.io/liquid/tags/variable/#assign)
     <td>{{h.date}}</td>
   </tr>
 {% endfor %}
-</table>
 
-### now... use the data from https://www.api.gov.uk/gds/bank-holidays/#bank-holidays https://www.gov.uk/bank-holidays.json using the same approach as the testData.mjs example
-
-#### start simple, render the whole lot .json
-
-#### get fancy, make a table
-
-#### copy this https://www.gov.uk/bank-holidays style.
-
-#### show off and use some nice css framework -->
-
-
- <!-- <table>
   <thead>
     <tr>
       <th>Date</th>
@@ -109,19 +118,28 @@ beatles with [assign](https://shopify.github.io/liquid/tags/variable/#assign)
    </tbody>  
 </table>  -->
 
+
 ### This code interpolates the bankHolidays variable as a JSON string. The jsonify filter then formats the code into JSON.
 
-<pre>{{ bankHolidays | jsonify }}</pre>  
+<div class="rawJSON">
+
+```json
+
+{{ bankHolidays | json:4 }} 
+```
+
+</div>
+
 
 # Bank Holidays
 
 <table>
   <thead>
     <tr>
-      <th>Date</th>
-      <th>Title</th>
-      <th>Notes</th>
-      <th>Bunting</th>
+      <th class="sectionHeadings">Date</th>
+      <th class="sectionHeadings">Title</th>
+      <th class="sectionHeadings">Notes</th>
+      <th class="sectionHeadings">Bunting</th>
     </tr>
   </thead>
 
@@ -134,7 +152,7 @@ beatles with [assign](https://shopify.github.io/liquid/tags/variable/#assign)
         {% assign currentYear = event.date | date: "%Y" %}
         {% if currentYear != lastYear %}
           <tr>
-            <td>{{ currentYear }}</td>
+            <td style="font-weight: bold;padding:5px;font-size:20px;border-bottom: 2px solid black;">{{ currentYear }}</td>
           </tr>
           {% assign lastYear = currentYear %}
         {% endif %}
@@ -150,6 +168,66 @@ beatles with [assign](https://shopify.github.io/liquid/tags/variable/#assign)
     {% endif %}
   </tbody>
 </table>
+<br>
 
+---
+
+### -default to the region I am in, using CF worker (request.cf.country)
+### -make a bootstrap accordian with the regions 
+### -move the worker code to the pages site (funtions dir) and use git push to deploy
+### -11ty/liquid includes and base templates
+
+---
+<br>
+
+<h1>Bank Holidays United Kingdom</h1>
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        England and Wales 
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+       Bank holidays from the selected UK region will be displayed here. it will default to a location based on your current location
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        Scotland
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        Bank holidays from the selected UK region will be displayed here. it will default to a location based on your current location
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        Northern Ireland
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        Bank holidays from the selected UK region will be displayed here. it will default to a location based on your current location
+      </div>
+    </div>
+  </div>
+</div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+<!-- and it's easy to individually load additional languages -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+
+<script>
+hljs.highlightAll();
+</script>
 
 
