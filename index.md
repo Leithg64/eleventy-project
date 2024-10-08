@@ -23,7 +23,6 @@ layout: layout.njk
   height: 40vh;
   overflow: scroll;
  }
-
 </style>
 
 <!-- # Liquid Testing Site
@@ -218,44 +217,59 @@ beatles with [assign](https://shopify.github.io/liquid/tags/variable/#assign)
 </div>
 
 <script>
-  async function fetchEvents() {
+async function fetchEvents() {
     try {
+        //retrieves the data from the given URL and waits for it to be fully fetched
         const response = await fetch('https://purple-pine-028c.leith-green.workers.dev/');
+        //converts the data to JSON once fetched
         const data = await response.json();
 
-        //populate england and wales with future dates
+        //adds in the data and the date for each
+        const populateEvents = (events, container) => {
+            let lastYear = null;
+
+            events.forEach(event => {
+                const eventDate = new Date(event.date);
+                const year = eventDate.getFullYear();
+                
+                //adds a year heading element to separate each years events
+                if (year !== lastYear) {
+                    const yearHeader = document.createElement('h3');
+                    yearHeader.innerText = year;
+                    container.appendChild(yearHeader);
+                    lastYear = year; // Update last year
+                }
+
+                //creates a div to store the fetched data in
+                const div = document.createElement('div');
+                div.innerText = `${event.title} - ${eventDate.toLocaleDateString()}`;
+                //then adds the element to the DOM so it's visible in the browser
+                container.appendChild(div);
+            });
+        };
+
+        //populates the England and Wales accordian section with future dates
         const englandAndWalesBody = document.getElementById('englandAndWalesBody');
-        data['england-and-wales'].events.forEach(event => {
-            const div = document.createElement('div');
-            div.innerText = `${event.title} - ${new Date(event.date).toLocaleDateString()}`;
-            englandAndWalesBody.appendChild(div);
-        });
+        populateEvents(data['england-and-wales'].events, englandAndWalesBody);
 
-        //populate Scotland with future dates
+        //populates the Scotland accordian section with future dates
         const scotlandBody = document.getElementById('scotlandBody');
-        data.scotland.events.forEach(event => {
-            const div = document.createElement('div');
-            div.innerText = `${event.title} - ${new Date(event.date).toLocaleDateString()}`;
-            scotlandBody.appendChild(div);
-        });
+        populateEvents(data.scotland.events, scotlandBody);
 
-        //populate northern ireland with future dates
+        //populates the Northern Ireland accordian section with future dates
         const northernIrelandBody = document.getElementById('northernIrelandBody');
-        data['northern ireland'].events.forEach(event => {
-            const div = document.createElement('div');
-            div.innerText = `${event.title} - ${new Date(event.date).toLocaleDateString()}`;
-            northernIrelandBody.appendChild(div);
-        });
+        populateEvents(data['northern-ireland'].events, northernIrelandBody);
 
+    //throws an error if the try code is unsuccessful
     } catch (error) {
         console.error("Error fetching data: ", error);
     }
 }
 
-//calls the function to fetch and display events
+//calls the function to execute the code and display it in the browser accordion 
 fetchEvents();
-
 </script>
+
 
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
