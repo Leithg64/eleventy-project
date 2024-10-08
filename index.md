@@ -171,10 +171,10 @@ beatles with [assign](https://shopify.github.io/liquid/tags/variable/#assign)
 
 ---
 
-### -make a bootstrap accordian with the regions 
-### -default to the region I am in, using CF worker (request.cf.country)
-### -move the worker code to the pages site (funtions dir) and use git push to deploy
-### -11ty/liquid includes and base templates
+<s><h3>-make a bootstrap accordian with the regions</h3></s>
+<h3>-default to the region I am in, using CF worker (request.cf.country)</h3>
+<h3>-move the worker code to the pages site (funtions dir) and use git push to deploy</h3>
+<h3>-11ty/liquid includes and base templates</h3>
 
 ---
 <br>
@@ -224,23 +224,24 @@ async function fetchEvents() {
         //converts the data to JSON once fetched
         const data = await response.json();
 
-        //adds in the data and the date for each
+        //varaible holds the events array and container for the data to be combined
         const populateEvents = (events, container) => {
             let lastYear = null;
 
+            //creates a date for each event and extract the year
             events.forEach(event => {
                 const eventDate = new Date(event.date);
                 const year = eventDate.getFullYear();
                 
-                //adds a year heading element to separate each years events
+                //checks the year, adds heading element to separate each years events if different
                 if (year !== lastYear) {
-                    const yearHeader = document.createElement('h3');
+                    const yearHeader = document.createElement('h5');
                     yearHeader.innerText = year;
                     container.appendChild(yearHeader);
                     lastYear = year; // Update last year
                 }
 
-                //creates a div to store the fetched data in
+                //creates a div to store the fetched event data, set it to display in the container
                 const div = document.createElement('div');
                 div.innerText = `${event.title} - ${eventDate.toLocaleDateString()}`;
                 //then adds the element to the DOM so it's visible in the browser
@@ -248,15 +249,13 @@ async function fetchEvents() {
             });
         };
 
-        //populates the England and Wales accordian section with future dates
+        //gets correct element for each region and populate with corresponding event data
         const englandAndWalesBody = document.getElementById('englandAndWalesBody');
         populateEvents(data['england-and-wales'].events, englandAndWalesBody);
 
-        //populates the Scotland accordian section with future dates
         const scotlandBody = document.getElementById('scotlandBody');
         populateEvents(data.scotland.events, scotlandBody);
 
-        //populates the Northern Ireland accordian section with future dates
         const northernIrelandBody = document.getElementById('northernIrelandBody');
         populateEvents(data['northern-ireland'].events, northernIrelandBody);
 
