@@ -2,27 +2,12 @@
 title: Liquid Testing Site
 layout: layout.njk
 ---
- 
+
 <style>
- body {
-  margin: 10px;
-  font-family: Arial, Helvetica, sans-serif;
-
- }
-
- td {
-  padding-left: 10px;
- }
-
- .sectionHeadings {
-  border-bottom: 2px solid black;
-  border-width: 100%;
- }
-
- .rawJSON {
+.rawJSON {
   height: 40vh;
   overflow: scroll;
- }
+}
 </style>
 
 <!-- # Liquid Testing Site
