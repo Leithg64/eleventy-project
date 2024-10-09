@@ -1,0 +1,10 @@
+@host=purple-pine-028c.leith-green.workers.dev
+
+### Get Cloudflare Proxied data
+GET http://{{host}}
+
+
+### Get data direct from api
+GET https://www.gov.uk/bank-holidays.json
+
+

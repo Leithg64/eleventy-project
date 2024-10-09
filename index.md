@@ -3,15 +3,16 @@ title: Liquid Testing Site
 layout: layout.njk
 ---
 
-<h1 id="pageTitle">Liquid Testing Site</h1>
+<h1>Liquid Testing Site</h1>
 
 
-<div id="toDoList">
+<div>
   <h1>TO DO:</h1>
-  <s><h3>-make a bootstrap accordian with the regions</h3></s>
-  <h3>-default to the region I am in, using CF worker (request.cf.country)</h3>
-  <h3>-move the worker code to the pages site (funtions dir) and use git push to deploy</h3>
-  <s><h3>-11ty/liquid includes and base templates</h3></s>
+  <s><h4>-Make a bootstrap accordian with the regions</h4></s>
+  <s><h4>-11ty/liquid includes and base templates</h4></s>
+  <h4>-Default to the region I am in, using CF worker (request.cf.country)</h4>
+  <h4>-Move the worker code to the pages site (funtions dir) and use git push to deploy</h4>
+  <h4>-Create production site using test code</h4>
 </div>
 
 <!-- ### the string literal "now" is passed to the [date](https://shopify.github.io/liquid/filters/date/) filter and will be evalualated as current date and time, and formated with the formating template string
@@ -104,7 +105,7 @@ beatles with [assign](https://shopify.github.io/liquid/tags/variable/#assign)
    </tbody>  
 </table>  -->
 
-<h1 class="subHeadings">Raw JSON data:</h1>
+<h1>Raw JSON data:</h1>
 
 ### This code interpolates the bankHolidays variable as a JSON string. The jsonify filter then formats the code into JSON.
 
@@ -117,15 +118,15 @@ beatles with [assign](https://shopify.github.io/liquid/tags/variable/#assign)
 
 </div>
 
-<h1 class="subHeadings">Bank Holidays:</h1>
+<h1>UK Bank Holidays (Table):</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th class="sectionHeadings">Date</th>
-      <th class="sectionHeadings">Title</th>
-      <th class="sectionHeadings">Notes</th>
-      <th class="sectionHeadings">Bunting</th>
+      <th>Date</th>
+      <th>Title</th>
+      <th>Notes</th>
+      <th>Bunting</th>
     </tr>
   </thead>
 
@@ -138,7 +139,7 @@ beatles with [assign](https://shopify.github.io/liquid/tags/variable/#assign)
         {% assign currentYear = event.date | date: "%Y" %}
         {% if currentYear != lastYear %}
           <tr>
-            <td style="font-weight: bold;padding:5px;font-size:20px;border-bottom: 2px solid black;">{{ currentYear }}</td>
+            <td>{{ currentYear }}</td>
           </tr>
           {% assign lastYear = currentYear %}
         {% endif %}
@@ -157,7 +158,7 @@ beatles with [assign](https://shopify.github.io/liquid/tags/variable/#assign)
 <br>
 
 
-<h1 class="subHeadings">Bank Holidays United Kingdom:</h1>
+<h1>UK Bank Holidays (Accordian): </h1>
 
 ### Data is fetched from the Gov.uk API using a cloudflare worker that iterates through the data and filters out past events. They are then arranged by year and placed in the corresponding country's container within a Bootstrap accordian element.
 
@@ -248,15 +249,11 @@ async function fetchEvents() {
 
 //calls the function to execute the code and display it in the browser accordion 
 fetchEvents();
+
+
 </script>
-
-
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 
 <script>
-hljs.highlightAll();
+  hljs.highlightAll();
 </script>
-
 

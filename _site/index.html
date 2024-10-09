@@ -4,20 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liquid Testing Site</title>
-    <link rel="stylesheet" href="./bundle.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    
+    <link rel="stylesheet" href="./bundle.css">
 </head>
 <body>
-    <main>
-        <h1 id="pageTitle">Liquid Testing Site</h1>
-<div id="toDoList">
+    <main class="container">
+        <h1>Liquid Testing Site</h1>
+<div>
   <h1>TO DO:</h1>
-  <s><h3>-make a bootstrap accordian with the regions</h3></s>
-  <h3>-default to the region I am in, using CF worker (request.cf.country)</h3>
-  <h3>-move the worker code to the pages site (funtions dir) and use git push to deploy</h3>
-  <s><h3>-11ty/liquid includes and base templates</h3></s>
+  <s><h4>-Make a bootstrap accordian with the regions</h4></s>
+  <s><h4>-11ty/liquid includes and base templates</h4></s>
+  <h4>-Default to the region I am in, using CF worker (request.cf.country)</h4>
+  <h4>-Move the worker code to the pages site (funtions dir) and use git push to deploy</h4>
+  <h4>-Create production site using test code</h4>
 </div>
 <!-- ### the string literal "now" is passed to the [date](https://shopify.github.io/liquid/filters/date/) filter and will be evalualated as current date and time, and formated with the formating template string
 
@@ -260,7 +262,7 @@ New Years Day
     </td></tr>
    </tbody>  
 </table>  -->
-<h1 class="subHeadings">Raw JSON data:</h1>
+<h1>Raw JSON data:</h1>
 <h3>This code interpolates the bankHolidays variable as a JSON string. The jsonify filter then formats the code into JSON.</h3>
 <div class="rawJSON">
 <pre><code class="language-json">
@@ -649,20 +651,20 @@ New Years Day
 } 
 </code></pre>
 </div>
-<h1 class="subHeadings">Bank Holidays:</h1>
-<table>
+<h1>UK Bank Holidays (Table):</h1>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th class="sectionHeadings">Date</th>
-      <th class="sectionHeadings">Title</th>
-      <th class="sectionHeadings">Notes</th>
-      <th class="sectionHeadings">Bunting</th>
+      <th>Date</th>
+      <th>Title</th>
+      <th>Notes</th>
+      <th>Bunting</th>
     </tr>
   </thead>
 <h3>A conditional checks the bankHolidays object for relavent data, then that data is iterated over and table rows are created to display the data. <br> Meanwhile, the lastYear variable is set as an empty string, and is then checked aganst the current year of the holiday and if different, a new row is created with data that displays the year. The variable is then set to the current year before starting the next iteration.</h3>
   <tbody>
 <p><tr>
-<td style="font-weight: bold;padding:5px;font-size:20px;border-bottom: 2px solid black;">2024</td>
+<td>2024</td>
 </tr></p>
 <p><tr>
 <td>2024-12-25</td>
@@ -677,7 +679,7 @@ New Years Day
 <td>true</td>
 </tr></p>
 <p><tr>
-<td style="font-weight: bold;padding:5px;font-size:20px;border-bottom: 2px solid black;">2025</td>
+<td>2025</td>
 </tr></p>
 <p><tr>
 <td>2025-01-01</td>
@@ -728,7 +730,7 @@ New Years Day
 <td>true</td>
 </tr></p>
 <p><tr>
-<td style="font-weight: bold;padding:5px;font-size:20px;border-bottom: 2px solid black;">2026</td>
+<td>2026</td>
 </tr></p>
 <p><tr>
 <td>2026-01-01</td>
@@ -781,7 +783,7 @@ New Years Day
   </tbody>
 </table>
 <br>
-<h1 class="subHeadings">Bank Holidays United Kingdom:</h1>
+<h1>UK Bank Holidays (Accordian): </h1>
 <h3>Data is fetched from the Gov.uk API using a cloudflare worker that iterates through the data and filters out past events. They are then arranged by year and placed in the corresponding country's container within a Bootstrap accordian element.</h3>
 <div class="accordion" id="eventsAccordion">
     <!-- ENGLAND AND WALES -->
@@ -869,14 +871,15 @@ async function fetchEvents() {
 
 //calls the function to execute the code and display it in the browser accordion 
 fetchEvents();
+
+
 </script>
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 <script>
-hljs.highlightAll();
+  hljs.highlightAll();
 </script>
 
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
