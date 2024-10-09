@@ -11,15 +11,15 @@
 </head>
 <body>
     <main>
-        <style>
-.rawJSON {
-  height: 40vh;
-  overflow: scroll;
-}
-</style>
-<!-- # Liquid Testing Site
-
-### the string literal "now" is passed to the [date](https://shopify.github.io/liquid/filters/date/) filter and will be evalualated as current date and time, and formated with the formating template string
+        <h1 id="pageTitle">Liquid Testing Site</h1>
+<div id="toDoList">
+  <h1>TO DO:</h1>
+  <s><h3>-make a bootstrap accordian with the regions</h3></s>
+  <h3>-default to the region I am in, using CF worker (request.cf.country)</h3>
+  <h3>-move the worker code to the pages site (funtions dir) and use git push to deploy</h3>
+  <s><h3>-11ty/liquid includes and base templates</h3></s>
+</div>
+<!-- ### the string literal "now" is passed to the [date](https://shopify.github.io/liquid/filters/date/) filter and will be evalualated as current date and time, and formated with the formating template string
 
 2024-10-09
 
@@ -260,6 +260,7 @@ New Years Day
     </td></tr>
    </tbody>  
 </table>  -->
+<h1 class="subHeadings">Raw JSON data:</h1>
 <h3>This code interpolates the bankHolidays variable as a JSON string. The jsonify filter then formats the code into JSON.</h3>
 <div class="rawJSON">
 <pre><code class="language-json">
@@ -648,7 +649,7 @@ New Years Day
 } 
 </code></pre>
 </div>
-<h1>Bank Holidays</h1>
+<h1 class="subHeadings">Bank Holidays:</h1>
 <table>
   <thead>
     <tr>
@@ -780,14 +781,8 @@ New Years Day
   </tbody>
 </table>
 <br>
-<hr>
-<p><s><h3>-make a bootstrap accordian with the regions</h3></s></p>
-<h3>-default to the region I am in, using CF worker (request.cf.country)</h3>
-<h3>-move the worker code to the pages site (funtions dir) and use git push to deploy</h3>
-<h3>-11ty/liquid includes and base templates</h3>
-<hr>
-<br>
-<h1>Bank Holidays United Kingdom</h1>
+<h1 class="subHeadings">Bank Holidays United Kingdom:</h1>
+<h3>Data is fetched from the Gov.uk API using a cloudflare worker that iterates through the data and filters out past events. They are then arranged by year and placed in the corresponding country's container within a Bootstrap accordian element.</h3>
 <div class="accordion" id="eventsAccordion">
     <!-- ENGLAND AND WALES -->
     <div class="accordion-item" id="englandAndWales">

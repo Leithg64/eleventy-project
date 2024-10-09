@@ -3,16 +3,18 @@ title: Liquid Testing Site
 layout: layout.njk
 ---
 
-<style>
-.rawJSON {
-  height: 40vh;
-  overflow: scroll;
-}
-</style>
+<h1 id="pageTitle">Liquid Testing Site</h1>
 
-<!-- # Liquid Testing Site
 
-### the string literal "now" is passed to the [date](https://shopify.github.io/liquid/filters/date/) filter and will be evalualated as current date and time, and formated with the formating template string
+<div id="toDoList">
+  <h1>TO DO:</h1>
+  <s><h3>-make a bootstrap accordian with the regions</h3></s>
+  <h3>-default to the region I am in, using CF worker (request.cf.country)</h3>
+  <h3>-move the worker code to the pages site (funtions dir) and use git push to deploy</h3>
+  <s><h3>-11ty/liquid includes and base templates</h3></s>
+</div>
+
+<!-- ### the string literal "now" is passed to the [date](https://shopify.github.io/liquid/filters/date/) filter and will be evalualated as current date and time, and formated with the formating template string
 
 {{ "now" | date: "%Y-%m-%d" }}
 
@@ -102,6 +104,7 @@ beatles with [assign](https://shopify.github.io/liquid/tags/variable/#assign)
    </tbody>  
 </table>  -->
 
+<h1 class="subHeadings">Raw JSON data:</h1>
 
 ### This code interpolates the bankHolidays variable as a JSON string. The jsonify filter then formats the code into JSON.
 
@@ -114,8 +117,7 @@ beatles with [assign](https://shopify.github.io/liquid/tags/variable/#assign)
 
 </div>
 
-
-# Bank Holidays
+<h1 class="subHeadings">Bank Holidays:</h1>
 
 <table>
   <thead>
@@ -154,17 +156,11 @@ beatles with [assign](https://shopify.github.io/liquid/tags/variable/#assign)
 </table>
 <br>
 
----
 
-<s><h3>-make a bootstrap accordian with the regions</h3></s>
-<h3>-default to the region I am in, using CF worker (request.cf.country)</h3>
-<h3>-move the worker code to the pages site (funtions dir) and use git push to deploy</h3>
-<h3>-11ty/liquid includes and base templates</h3>
+<h1 class="subHeadings">Bank Holidays United Kingdom:</h1>
 
----
-<br>
+### Data is fetched from the Gov.uk API using a cloudflare worker that iterates through the data and filters out past events. They are then arranged by year and placed in the corresponding country's container within a Bootstrap accordian element.
 
-<h1>Bank Holidays United Kingdom</h1>
 <div class="accordion" id="eventsAccordion">
     <!-- ENGLAND AND WALES -->
     <div class="accordion-item" id="englandAndWales">
